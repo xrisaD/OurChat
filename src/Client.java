@@ -12,25 +12,28 @@ public class Client {
         ObjectInputStream in = null;
         try {
 
-            requestSocket = new Socket("127.0.0.1", 4321);
+            requestSocket = new Socket("172.16.2.62", 4321);
+            System.out.println(requestSocket.isConnected());
             out = new ObjectOutputStream(requestSocket.getOutputStream());
-            in = new ObjectInputStream(requestSocket.getInputStream());
-            /*
-             *
-             *
-             *
-             */
+            //in = new ObjectInputStream(requestSocket.getInputStream());
+
             Scanner sc = new Scanner(System.in);
-            String line = sc.nextLine();
-            ChatProtocol message = new ChatProtocol();
-            message.setMessage(line);
-            message.setSender("Nikolaos");
-            out.writeObject(message);
+            System.out.println("Before While true");
+            while(true) {
+
+                String line = sc.nextLine();
+                ChatProtocol message = new ChatProtocol();
+                message.setMessage(line);
+                message.setSender("Nikolaos");
+                System.out.println(message);
+                out.writeObject(message);
+            }
 
         } catch (UnknownHostException unknownHost) {
             System.err.println("You are trying to connect to an unknown host!");
         } catch (IOException ioException) {
             ioException.printStackTrace();
+            System.out.println("IOEXCEPTION");
         } finally {
             try {
                 in.close();	out.close();
@@ -39,6 +42,9 @@ public class Client {
                 ioException.printStackTrace();
             }
         }
+    }
+    public static void main(String[] args){
+        new Client().run();
     }
 
 }
