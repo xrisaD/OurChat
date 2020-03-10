@@ -11,12 +11,14 @@ public class InputStreamThread extends Thread{
     public void run() {
         try{
             ChatProtocol cp = null;
+            System.out.println(in.available());
+            System.out.println("xrisa");
             while(true) {
                 cp = (ChatProtocol) in.readObject();
                 System.out.println(cp);
             }
         } catch (ClassNotFoundException c) {
-            System.out.println("Employee class not found");
+            System.out.println("Class not found");
             c.printStackTrace();
             return;
         } catch (IOException ioException) {
