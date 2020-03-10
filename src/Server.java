@@ -10,34 +10,27 @@ public class Server {
     ServerSocket providerSocket;
     Socket connection = null;
 
-    //ObjectOutputStream out = null;
 
     void openServer() {
         ObjectInputStream in = null;
         ChatProtocol e = null;
+        ObjectOutputStream out = null;
         try {
-
             providerSocket = new ServerSocket(4321, 10);
 
             while (true) {
                 connection = providerSocket.accept();
                 in = new ObjectInputStream(connection.getInputStream());
+                out = new ObjectOutputStream(connection.getOutputStream());
 
-                //out = new ObjectOutputStream(connection.getOutputStream());
-                while(true) {
-                    e = (ChatProtocol) in.readObject();
-                    System.out.println(e);
-                }
+                InputStreamThread t1 = new InputStreamThread(in);
+                OutputStreamThread t2 = new OutputStreamThread(out);
                 //out.writeObject();
                // out.close();
             }
 
         } catch (IOException ioException) {
             ioException.printStackTrace();
-        } catch (ClassNotFoundException c) {
-            System.out.println("Employee class not found");
-            c.printStackTrace();
-            return;
         }finally {
             try {
                 providerSocket.close();
