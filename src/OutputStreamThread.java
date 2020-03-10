@@ -12,6 +12,9 @@ public class OutputStreamThread extends Thread {
     @Override
     public void run(){
         try {
+            ChatProtocol cp = new ChatProtocol();
+            cp.setSender("Egw");
+            out.writeObject(cp);
             while(true) {
                 String line = sc.nextLine();
                 ChatProtocol message = new ChatProtocol();

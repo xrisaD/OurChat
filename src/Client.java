@@ -23,6 +23,7 @@ public class Client {
             output.start();
             input.start();
 
+
         } catch (UnknownHostException unknownHost) {
             System.err.println("You are trying to connect to an unknown host!");
         } catch (IOException ioException) {
