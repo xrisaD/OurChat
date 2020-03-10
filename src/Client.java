@@ -21,6 +21,11 @@ public class Client {
              *
              */
             Scanner sc = new Scanner(System.in);
+            String line = sc.nextLine();
+            ChatProtocol message = new ChatProtocol();
+            message.setMessage(line);
+            message.setSender("Nikolaos");
+            out.writeObject(message);
 
         } catch (UnknownHostException unknownHost) {
             System.err.println("You are trying to connect to an unknown host!");
