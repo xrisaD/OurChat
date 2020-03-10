@@ -13,10 +13,9 @@ public class Client {
         try {
 
             requestSocket = new Socket("172.16.2.62", 4321);
-            System.out.println(requestSocket.isConnected());
             //out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());
-
+            System.out.println(requestSocket.isConnected());
             //Thread output = new OutputStreamThread(out);
             Thread input = new InputStreamThread(in);
             //Starting threads
@@ -31,7 +30,7 @@ public class Client {
             System.out.println("IOEXCEPTION");
         } finally {
             try {
-                in.close();	out.close();
+                in.close();//	out.close();
                 requestSocket.close();
             } catch (IOException ioException) {
                 ioException.printStackTrace();
