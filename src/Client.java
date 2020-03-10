@@ -18,9 +18,10 @@ public class Client {
             in = new ObjectInputStream(requestSocket.getInputStream());
 
             Thread output = new OutputStreamThread(out);
+            Thread input = new InputStreamThread(in);
+            //Starting threads
             output.start();
-            //TODO input stream
-
+            input.start();
 
         } catch (UnknownHostException unknownHost) {
             System.err.println("You are trying to connect to an unknown host!");
