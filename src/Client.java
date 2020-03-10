@@ -14,13 +14,13 @@ public class Client {
 
             requestSocket = new Socket("172.16.2.62", 4321);
             System.out.println(requestSocket.isConnected());
-            out = new ObjectOutputStream(requestSocket.getOutputStream());
+            //out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());
 
-            Thread output = new OutputStreamThread(out);
+            //Thread output = new OutputStreamThread(out);
             Thread input = new InputStreamThread(in);
             //Starting threads
-            output.start();
+            //output.start();
             input.start();
 
 
