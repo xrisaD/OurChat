@@ -25,6 +25,10 @@ public class Server {
 
                 InputStreamThread t1 = new InputStreamThread(in);
                 OutputStreamThread t2 = new OutputStreamThread(out);
+
+                t1.start();
+                t2.start();
+
                 //out.writeObject();
                // out.close();
             }
