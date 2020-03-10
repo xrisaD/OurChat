@@ -20,17 +20,13 @@ public class Server {
 
             while (true) {
                 connection = providerSocket.accept();
-                in = new ObjectInputStream(connection.getInputStream());
+                //in = new ObjectInputStream(connection.getInputStream());
                 out = new ObjectOutputStream(connection.getOutputStream());
 
-                InputStreamThread t1 = new InputStreamThread(in);
+                //InputStreamThread t1 = new InputStreamThread(in);
                 OutputStreamThread t2 = new OutputStreamThread(out);
-
-                t1.start();
+                //t1.start();
                 t2.start();
-
-                //out.writeObject();
-               // out.close();
             }
 
         } catch (IOException ioException) {
