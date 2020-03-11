@@ -24,7 +24,7 @@ public class Server {
                 out = new ObjectOutputStream(connection.getOutputStream());
 
                 InputStreamThread input = new InputStreamThread(in);
-                OutputStreamThread output = new OutputStreamThread(out);
+                OutputStreamThread output = new OutputStreamThread(out,"Xrisa");
 
                 input.start();
                 output.start();
