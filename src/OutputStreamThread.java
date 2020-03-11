@@ -21,6 +21,7 @@ public class OutputStreamThread extends Thread {
                 message.setMessage(line);
                 message.setSender(senderName);
                 out.writeObject(message);
+                System.out.println(message);
             }
         }
         catch(IOException e){

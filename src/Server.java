@@ -21,12 +21,12 @@ public class Server {
             while (true) {
                 connection = providerSocket.accept();
                 in = new ObjectInputStream(connection.getInputStream());
-                System.out.print("hy1");
+
                 out = new ObjectOutputStream(connection.getOutputStream());
-                System.out.print("egw");
+
                 InputStreamThread input = new InputStreamThread(in);
                 OutputStreamThread output = new OutputStreamThread(out,"Xrisa");
-                System.out.print("hy");
+
 
                 input.start();
                 output.start();
