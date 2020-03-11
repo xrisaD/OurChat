@@ -14,6 +14,7 @@ public class Client {
 
             requestSocket = new Socket("192.168.1.13", 4321);
             out = new ObjectOutputStream(requestSocket.getOutputStream());
+
             in = new ObjectInputStream(requestSocket.getInputStream());
             System.out.println(requestSocket.isConnected());
 

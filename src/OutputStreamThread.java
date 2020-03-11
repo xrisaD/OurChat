@@ -14,17 +14,12 @@ public class OutputStreamThread extends Thread {
     }
     @Override
     public void run(){
-        System.out.println("xrisa");
         try {
             while(true) {
-
                 String line = sc.nextLine();
-                System.out.println(line);
                 ChatProtocol message = new ChatProtocol();
                 message.setMessage(line);
-                System.out.println(line);
                 message.setSender(senderName);
-                System.out.println(message);
                 out.writeObject(message);
             }
         }
