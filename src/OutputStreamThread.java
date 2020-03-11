@@ -5,10 +5,12 @@ import java.util.Scanner;
 public class OutputStreamThread extends Thread {
     ObjectOutputStream out;
     Scanner sc;
-    public OutputStreamThread(ObjectOutputStream out){
+    String senderName;
+    public OutputStreamThread(ObjectOutputStream out , String senderName){
         System.out.print("xrisaki");
         this.out = out;
         this.sc = new Scanner(System.in);
+        this.senderName = senderName;
     }
     @Override
     public void run(){
@@ -21,7 +23,7 @@ public class OutputStreamThread extends Thread {
                 ChatProtocol message = new ChatProtocol();
                 message.setMessage(line);
                 System.out.println(line);
-                message.setSender("Nikolaos");
+                message.setSender(senderName);
                 System.out.println(message);
                 out.writeObject(message);
             }
