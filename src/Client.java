@@ -13,9 +13,11 @@ public class Client {
         try {
 
             requestSocket = new Socket("192.168.1.13", 4321);
+            System.out.println("Getting socket output stream");
             out = new ObjectOutputStream(requestSocket.getOutputStream());
-
+            System.out.println("Getting socket input stream");
             in = new ObjectInputStream(requestSocket.getInputStream());
+            System.out.println("Finished getting streams");
             System.out.println(requestSocket.isConnected());
 
 
