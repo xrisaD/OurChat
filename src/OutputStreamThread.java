@@ -7,7 +7,6 @@ public class OutputStreamThread extends Thread {
     Scanner sc;
     String senderName;
     public OutputStreamThread(ObjectOutputStream out , String senderName){
-        System.out.print("xrisaki");
         this.out = out;
         this.sc = new Scanner(System.in);
         this.senderName = senderName;
