@@ -16,7 +16,8 @@ public class OutputStreamThread extends Thread {
         try {
             while(true) {
                 String line = sc.nextLine();
-                if(line==""){continue;};
+                
+                if(line.equals("")){continue;}
                 ChatProtocol message = new ChatProtocol();
                 message.setMessage(line);
                 message.setSender(senderName);
