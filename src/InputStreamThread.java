@@ -11,8 +11,6 @@ public class InputStreamThread extends Thread{
     public void run() {
         try{
             ChatProtocol cp = null;
-            System.out.println(in.available());
-            System.out.println("xrisa");
             while(true) {
                 cp = (ChatProtocol) in.readObject();
                 System.out.println(cp);
