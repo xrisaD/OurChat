@@ -11,15 +11,10 @@ public class Client {
         ObjectOutputStream out = null;
         ObjectInputStream in = null;
         try {
-
             requestSocket = new Socket("127.0.0.1", 4321);
-            System.out.println("Getting socket output stream");
-            out = new ObjectOutputStream(requestSocket.getOutputStream());
-            System.out.println("Getting socket input stream");
-            in = new ObjectInputStream(requestSocket.getInputStream());
-            System.out.println("Finished getting streams");
-            System.out.println(requestSocket.isConnected());
 
+            out = new ObjectOutputStream(requestSocket.getOutputStream());
+            in = new ObjectInputStream(requestSocket.getInputStream());
 
             Thread output = new OutputStreamThread(out , "NickSm");
             Thread input = new InputStreamThread(in);

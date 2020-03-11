@@ -13,7 +13,9 @@ public class InputStreamThread extends Thread{
             ChatProtocol cp = null;
             while(true) {
                 cp = (ChatProtocol) in.readObject();
-                System.out.println(cp);
+                if(cp.getMessage()!="") {
+                    System.out.println(cp);
+                }
             }
         } catch (ClassNotFoundException c) {
             System.out.println("Class not found");
