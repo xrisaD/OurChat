@@ -1,1 +1,1 @@
-# DistributedChat
+# Our chat
